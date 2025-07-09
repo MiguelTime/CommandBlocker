@@ -1,0 +1,22 @@
+name: CommandBlocker
+main: me.MiguelTime.commandblocker.CommandBlocker
+version: 1.0
+api-version: 1.20
+folia-supported: true
+
+commands:
+  cb:
+    description: Plugin CommandBlocker command
+    usage: /cb reload
+    permission: commandblocker.admin
+  cbtest:
+    description: Comando de testeo oculto
+    permission: commandblocker.test
+
+permissions:
+  commandblocker.bypass:
+    default: op
+  commandblocker.admin:
+    default: op
+  commandblocker.test:
+    default: op

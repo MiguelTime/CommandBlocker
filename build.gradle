@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'me.MiguelTime'
+version = '1.0'
+description = 'Plugin para bloquear comandos y tab en Folia'
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'dev.folia:folia-api:1.20.1-R0.1-SNAPSHOT' // Asegúrate que coincida con la versión de tu servidor Folia
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    manifest {
+        attributes(
+                'Main-Class': 'me.usuario.commandblocker.CommandBlocker'
+        )
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
