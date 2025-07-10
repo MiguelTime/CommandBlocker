@@ -10,13 +10,13 @@ public class CBCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (label.equalsIgnoreCase("cb")) {
             if (!sender.hasPermission("commandblocker.admin")) {
-                sender.sendMessage("§cNo tienes permiso para usar este comando.");
+                sender.sendMessage(CommandBlocker.getInstance().getMessage("no-permission"));
                 return true;
             }
 
             if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
                 CommandBlocker.getInstance().reload();
-                sender.sendMessage("§aConfiguración recargada correctamente.");
+                sender.sendMessage(CommandBlocker.getInstance().getMessage("reload-success"));
             } else {
                 sender.sendMessage("§eUso: /cb reload");
             }
@@ -25,10 +25,11 @@ public class CBCommand implements CommandExecutor {
 
         if (label.equalsIgnoreCase("cbtest")) {
             if (!sender.hasPermission("commandblocker.test")) {
-                sender.sendMessage("§cNo tienes permiso para usar este comando.");
+                sender.sendMessage(CommandBlocker.getInstance().getMessage("no-permission"));
                 return true;
             }
-            sender.sendMessage("§aEl plugin está funcionando correctamente.");
+            sender.sendMessage(CommandBlocker.getInstance().getMessage("test-success"));
+
             return true;
         }
 
