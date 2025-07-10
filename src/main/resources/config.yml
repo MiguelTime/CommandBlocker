@@ -1,3 +1,12 @@
+# Desarrollado por: MiguelTime
+# This file is used to configure the plugin's settings and messages.
+
+messages:
+  command-blocked: "&cEste comando está bloqueado."
+  reload-success: "&aLa configuración se ha recargado correctamente."
+  no-permission: "&cNo tienes permiso para usar este comando."
+  test-success: "&aEl plugin está funcionando correctamente."
+
 allowed-commands:
   - help
   - msg

@@ -14,7 +14,7 @@ public class CommandListener implements Listener {
 
         String command = event.getMessage().split(" ")[0].replace("/", "").toLowerCase();
         if (!CommandBlocker.getInstance().getConfig().getStringList("allowed-commands").contains(command)) {
-            player.sendMessage("§cComando bloqueado.");
+            player.sendMessage(CommandBlocker.getInstance().getMessage("command-blocked"));
             event.setCancelled(true);
         }
     }
